@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman_Game.MainPage">
+
+    <Grid RowDefinitions=".6*, .4*">
+
+        <VerticalStackLayout Grid.Row="0">
+            
+            <Label Text="Errors : 0 of 6"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"/>
+
+            <Image Source="img0.jpg"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   HeightRequest="200"/>
+
+            <Label Text="{Binding Spotlight}"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+
+            <Label Text="You lost!"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+
+            <Button Text="Play Again"
+                    WidthRequest="100"
+                    HorizontalOptions="Center"
+                    Clicked="OnPlayAgainClicked"/>
+
+        </VerticalStackLayout>
+
+        <FlexLayout Grid.Row="1" Wrap="Wrap" JustifyContent="SpaceEvenly">
+            
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="A" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="B" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="C" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="D" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="E" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="F" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="G" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="H" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="I" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="J" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="K" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="L" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="M" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="N" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="O" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="P" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="Q" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="R" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="S" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="T" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="U" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="V" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="W" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="X" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="Y" Clicked="OnLetterClicked"/>
+            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="Z" Clicked="OnLetterClicked"/>
+            
+        </FlexLayout>
+
+    </Grid>
+
+</ContentPage>
