@@ -24,15 +24,40 @@ namespace Hangman_Game
             "snippets"
         };
 
-        string answer = "";
+        private List<char> letters = new List<char>();
 
-        private string spotlight;
+        public List<char> Letters { 
+            get => letters;
+            set
+            {
+                letters = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private string message;
+
+        public string Message
+        {
+            get => message;
+            set
+            {
+                message = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        string answer = "";
 
         List<char> guessed = new List<char>();
 
         #endregion
 
         #region UI Property
+
+        private string spotlight;
 
         public string Spotlight
         {
@@ -53,6 +78,8 @@ namespace Hangman_Game
         public MainPage()
         {
             InitializeComponent();
+
+            Letters.AddRange("abcdefghijklmnopqrstuvwxyz");
 
             BindingContext = this;
 
@@ -80,6 +107,51 @@ namespace Hangman_Game
             Spotlight = string.Join(' ', temp);
         }
 
+        private void HandleGuess(char letter)
+        {
+            if(guessed.IndexOf(letter) == -1)
+            {
+                // Add letter to guessed list if not already guessed
+                guessed.Add(letter);
+            }
+
+            if (answer.IndexOf(letter) >= 0)
+            {
+                // Correct guess
+                CalculateWord(answer, guessed);
+                CheckIfGameWon();
+            }
+            else
+            {
+                // Incorrect guess
+                // Handle incorrect guess logic here (e.g., decrement lives, show message, etc.)
+            }
+        }
+
+        private void CheckIfGameWon()
+        {
+            if (Spotlight.Replace(" ", "") == answer)
+            {
+                // Game won logic here (e.g., show message, reset game, etc.)
+                message = "Congratulations! You've won!";
+            }
+        }
+
         #endregion
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+
+            if (btn != null)
+            {
+                var letter = btn.Text;
+                btn.IsEnabled = false;
+
+                HandleGuess(letter[0]);
+            }
+        }
+
+        
     }
 }

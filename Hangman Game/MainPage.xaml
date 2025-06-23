@@ -22,46 +22,24 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"/>
 
-            <Label Text="You lost!"
+            <Label Text="{Binding message}"
                    FontSize="Large"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"/>
 
             <Button Text="Play Again"
                     WidthRequest="100"
-                    HorizontalOptions="Center"
-                    Clicked="OnPlayAgainClicked"/>
+                    HorizontalOptions="Center"/>
 
         </VerticalStackLayout>
 
-        <FlexLayout Grid.Row="1" Wrap="Wrap" JustifyContent="SpaceEvenly">
-            
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="A" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="B" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="C" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="D" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="E" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="F" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="G" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="H" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="I" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="J" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="K" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="L" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="M" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="N" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="O" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="P" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="Q" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="R" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="S" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="T" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="U" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="V" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="W" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="X" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="Y" Clicked="OnLetterClicked"/>
-            <Button HeightRequest="50" WidthRequest="50" BackgroundColor="Navy" Text="Z" Clicked="OnLetterClicked"/>
+        <FlexLayout Grid.Row="1" Wrap="Wrap" JustifyContent="SpaceEvenly" BindableLayout.ItemsSource="{Binding Letters}">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button HeightRequest="50" WidthRequest="50"  Text="{Binding .}" Clicked="Button_Clicked"/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
             
         </FlexLayout>
 
