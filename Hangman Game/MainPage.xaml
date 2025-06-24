@@ -27,13 +27,15 @@
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"/>
 
-            <Button Text="Play Again"
+            <Button Text="Reset"
                     WidthRequest="100"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    Clicked="Reset_Clicked"/>
 
         </VerticalStackLayout>
 
-        <FlexLayout Grid.Row="1" Wrap="Wrap" JustifyContent="SpaceEvenly" BindableLayout.ItemsSource="{Binding Letters}">
+        <FlexLayout Grid.Row="1" Wrap="Wrap" JustifyContent="SpaceEvenly" BindableLayout.ItemsSource="{Binding Letters}"
+                    x:Name="LettersContainer">
 
             <BindableLayout.ItemTemplate>
                 <DataTemplate>

@@ -162,6 +162,7 @@ namespace Hangman_Game
             {
                 // Game won logic here (e.g., show message, reset game, etc.)
                 message = "Congratulations! You've won!";
+                DisableLetters();
             }
         }
 
@@ -175,6 +176,33 @@ namespace Hangman_Game
             if (mistakes == maxWrong)
             {
                 Message = "Game Over! You've lost!";
+                DisableLetters();
+            }
+        }
+
+        private void DisableLetters()
+        {
+            foreach (var children in LettersContainer.Children)
+            {
+                var btn = children as Button;
+
+                if (btn != null)
+                {
+                    btn.IsEnabled = false;
+                }
+            }
+        }
+
+        private void EnableLetters()
+        {
+            foreach (var children in LettersContainer.Children)
+            {
+                var btn = children as Button;
+
+                if (btn != null)
+                {
+                    btn.IsEnabled = true;
+                }
             }
         }
 
@@ -193,6 +221,16 @@ namespace Hangman_Game
             }
         }
 
-        
+        private void Reset_Clicked(object sender, EventArgs e)
+        {
+            mistakes = 0;
+            guessed = new List<char>();
+            currentImage = "img0.jpg";
+            PickWord();
+            CalculateWord(answer, guessed);
+            Message = "";
+            UpdateStats();
+            EnableLetters();
+        }
     }
 }
