@@ -6,12 +6,12 @@
     <Grid RowDefinitions=".6*, .4*">
 
         <VerticalStackLayout Grid.Row="0">
-            
-            <Label Text="Errors : 0 of 6"
+
+            <Label Text="{Binding GameStats}"
                     FontAttributes="Bold"
                     HorizontalOptions="Center"/>
 
-            <Image Source="img0.jpg"
+            <Image Source="{Binding CurrentImage}"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    HeightRequest="200"/>
@@ -22,7 +22,7 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"/>
 
-            <Label Text="{Binding message}"
+            <Label Text="{Binding Message}"
                    FontSize="Large"
                    HorizontalOptions="Center"
                    HorizontalTextAlignment="Center"/>

@@ -48,8 +48,34 @@ namespace Hangman_Game
             }
         }
 
+        private  string gameStats;
+
+        public string GameStats { 
+            get => gameStats;
+            set
+            {
+                gameStats = value;
+                OnPropertyChanged();
+            } 
+        }
+
+        private string currentImage = "img0.jpg";
+        public string CurrentImage { 
+            get => currentImage;
+
+            set
+            {
+                currentImage = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         string answer = "";
+
+        int mistakes = 0; 
+
+        int maxWrong = 6;
 
         List<char> guessed = new List<char>();
 
@@ -121,10 +147,12 @@ namespace Hangman_Game
                 CalculateWord(answer, guessed);
                 CheckIfGameWon();
             }
-            else
+            else if(answer.IndexOf(letter) == -1)
             {
-                // Incorrect guess
-                // Handle incorrect guess logic here (e.g., decrement lives, show message, etc.)
+                mistakes++;
+                UpdateStats();
+                CheckIfGameLost();
+                currentImage = $"img{mistakes}.jpg";
             }
         }
 
@@ -134,6 +162,19 @@ namespace Hangman_Game
             {
                 // Game won logic here (e.g., show message, reset game, etc.)
                 message = "Congratulations! You've won!";
+            }
+        }
+
+        private void UpdateStats()
+        {
+            GameStats = $"Errors: {mistakes} of {maxWrong}";
+        }
+
+        private void CheckIfGameLost()
+        {
+            if (mistakes == maxWrong)
+            {
+                Message = "Game Over! You've lost!";
             }
         }
 
